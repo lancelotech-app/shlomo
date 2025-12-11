@@ -43,7 +43,7 @@ SHLOMO is an experimental cryptographic project. Users are encouraged to conduct
 
 **📧 Contact & Support:** *lancelotech@proton.me*
 
-**🌐 Join the community:** *[Links to your future social media/discord/etc.]*
+**🌐 Download Android App:** *[https://github.com/lancelotech-app/shlomo/releases/tag/1]*
 
 ---
 
