@@ -12,8 +12,8 @@ SHLOMO is an innovative Bytestock designed to make international money transfers
 *   **🌍 Global Accessibility:** Create an account simply with a **Gmail address**. Identity verification (KYC) is **optional**, promoting rapid financial inclusion.
 *   **🔒 Transparency & Compliance:** Token purchases are made at a price equal to or higher than market price, in full respect of the fundamental ethical principles of the sector.
 *   **💎 Initial Offering & Valuation:**
-    *   Launch price: **1 SHLOMO = 10 USD**
-    *   Initial supply: **100 SHLOMO Tokens**
+    *   Launch price: **1 SHLOMO = 1.6 USD**
+    *   Initial supply: **APP**
 
 ### **🚀 Vision & Mission**
 
