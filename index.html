@@ -1,628 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHLOMO - Global Bytestock Currency</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #2a4b8c;
-            --secondary: #4CAF50;
-            --accent: #FF9800;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --gradient: linear-gradient(135deg, #2a4b8c 0%, #4CAF50 100%);
-        }
-        
-        body {
-            background-color: #f5f7ff;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-icon {
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 180px 2rem 100px;
-            text-align: center;
-            background: linear-gradient(rgba(42, 75, 140, 0.9), rgba(42, 75, 140, 0.8)), url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            margin-top: 70px;
-        }
-        
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
-        }
-        
-        .cta-button:hover {
-            background-color: #e68900;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
-        }
-        
-        /* Features Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            font-size: 2.2rem;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            font-size: 1.1rem;
-        }
-        
-        .features {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        /* Token Details */
-        .token-details {
-            padding: 6rem 2rem;
-            background-color: var(--light);
-        }
-        
-        .token-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .token-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .token-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .coin {
-            width: 250px;
-            height: 250px;
-            background: var(--gradient);
-            border-radius: 50%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(42, 75, 140, 0.3);
-        }
-        
-        .price-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-        }
-        
-        .price-card h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-        
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        
-        /* Download Section */
-        .download {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: var(--gradient);
-            color: white;
-        }
-        
-        .download-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .download-options {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-        
-        .download-btn {
-            background: white;
-            color: var(--primary);
-            padding: 1.2rem 2.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            color: var(--accent);
-        }
-        
-        .footer-section a {
-            color: #ddd;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                background: var(--primary);
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 150px 1.5rem 80px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .features, .token-details, .download {
-                padding: 4rem 1.5rem;
-            }
-            
-            .coin {
-                width: 200px;
-                height: 200px;
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHLOMO · Bytestock Global Currency</title>
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f6f9fc;
+      color: #1a2634;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      max-width: 1000px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 30, 0.15), 0 8px 24px -6px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s ease;
+    }
+
+    /* header */
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 1.5rem;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      background: #0b1e2b;
+      color: #f9d342;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    }
+
+    .brand h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1e2b;
+    }
+
+    .brand h1 span {
+      font-weight: 400;
+      color: #406e8e;
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+      background: #eaf0f6;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .tagline {
+      color: #3a5a78;
+      font-weight: 500;
+      background: #f0f5fa;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* grid stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 2.2rem 0;
+    }
+
+    .stat-item {
+      background: #f9fcff;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.2rem 1rem 1.2rem;
+      border: 1px solid #eaf0f6;
+      transition: 0.15s ease;
+    }
+
+    .stat-item:hover {
+      background: #ffffff;
+      border-color: #cbdde9;
+      box-shadow: 0 4px 12px rgba(0, 30, 50, 0.04);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5b7f9b;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-label i {
+      font-size: 0.9rem;
+      color: #6c8aa8;
+      width: 1.2rem;
+    }
+
+    .stat-value {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0b1e2b;
+      margin-top: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-value small {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #3f6887;
+      margin-left: 4px;
+    }
+
+    .stat-sub {
+      font-size: 0.8rem;
+      color: #4e738f;
+      margin-top: 0.2rem;
+      font-weight: 450;
+    }
+
+    .highlight-badge {
+      background: #e2ecf5;
+      border-radius: 40px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #144a6b;
+      display: inline-block;
+    }
+
+    .divider-light {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, #e2ecf5, transparent);
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    /* action row */
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: #f1f7fc;
+      padding: 1.2rem 1.8rem;
+      border-radius: 2rem;
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #ffffff;
+      border: 1px solid #d0dfeb;
+      padding: 0.6rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a2e3f;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .btn i {
+      font-size: 1.1rem;
+      color: #2f5b7a;
+    }
+
+    .btn-primary {
+      background: #0b1e2b;
+      border-color: #0b1e2b;
+      color: white;
+    }
+
+    .btn-primary i {
+      color: #f9d342;
+    }
+
+    .btn-primary:hover {
+      background: #1d3343;
+      border-color: #1d3343;
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(11, 30, 43, 0.15);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #c6d9e6;
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      border-color: #8fb1cc;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.6);
+      border-color: #d4e2ed;
+    }
+
+    .github-btn i {
+      color: #1a1f2b;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #f9fcff;
+      padding: 1rem 1.6rem;
+      border-radius: 60px;
+      border: 1px solid #e2ecf5;
+      margin-top: 1rem;
+    }
+
+    .contact-row a {
+      color: #1a3d57;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.15s;
+    }
+
+    .contact-row a i {
+      font-size: 1.2rem;
+      color: #2b5b7a;
+    }
+
+    .contact-row a:hover {
+      color: #0b1e2b;
+      text-decoration: underline;
+    }
+
+    .footnote {
+      font-size: 0.8rem;
+      color: #6f8da5;
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #eaf0f6;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .footnote span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* mobile fine-tune */
+    @media (max-width: 680px) {
+      .card { padding: 1.8rem 1.2rem; }
+      .brand { flex-direction: column; align-items: flex-start; }
+      .brand h1 { font-size: 1.6rem; }
+      .brand h1 span { font-size: 0.9rem; margin-left: 0; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .stat-value { font-size: 1.4rem; }
+      .action-row { flex-direction: column; align-items: stretch; }
+      .action-buttons { justify-content: center; }
+      .contact-row { flex-direction: column; align-items: flex-start; border-radius: 2rem; }
+    }
+
+    @media (max-width: 440px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-coins logo-icon"></i>
-                <span>SHLOMO</span>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#token">SHLOMO Token</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="card">
+    
+    <!-- header -->
+    <div class="brand">
+      <div class="brand-left">
+        <div class="brand-icon">ϑ</div>
+        <h1>SHLOMO <span> </span></h1>
+      </div>
+      <div class="tagline">
+        <i class="fas fa-globe" style="margin-right: 6px;"></i> Bytestock Global Currency
+      </div>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>SHLOMO - Global Bytestock Currency</h1>
-        <p>Revolutionize your exchanges with SHLOMO, the global digital currency stored in bytes. Designed to make international money transfers instant, secure, and practically free.</p>
-        <a href="#download" class="cta-button">Get Started Now <i class="fas fa-arrow-right"></i></a>
-    </section>
+    <!-- stats -->
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-tag"></i> Initial price</div>
+        <div class="stat-value">1.61 <small>USD</small></div>
+        <div class="stat-sub">1 SHLOMO</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-database"></i> Max supply</div>
+        <div class="stat-value">31,415,926 ϑ</div>
+        <div class="stat-sub">total cap</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-lock"></i> Lock-ups</div>
+        <div class="stat-value">21,991,148 ϑ</div>
+        <div class="stat-sub">vested / reserved</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-circle"></i> Circulation</div>
+        <div class="stat-value">6,283,185 ϑ</div>
+        <div class="stat-sub">actively traded</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-user"></i>developer & founder</div>
+        <div class="stat-value">3,141,593 ϑ</div>
+        <div class="stat-sub">Captain 10%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-file-contract"></i> Max contracts in progress / user</div>
+        <div class="stat-value">21</div>
+        <div class="stat-sub">by_user</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label"><i class="fas fa-mobile-alt"></i> Mobile</div>
+        <div class="stat-value" style="font-size: 1.1rem; font-weight: 600;">Android <span style="font-weight:400; color:#275a7a; font-size:0.9rem; margin-left:4px;">v1.0.0</span></div>
+        <div class="stat-sub"><i class="fas fa-check-circle" style="color:#2b7a4b;"></i> available (release 1)</div>
+      </div>
+    </div>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2 class="section-title">✨ Key Features</h2>
-        <p class="section-subtitle">SHLOMO combines technological innovation and accessibility to offer a unique exchange experience</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3>Simplified P2P Platform</h3>
-                <p>An intuitive Android app for direct exchanges between individuals, without intermediaries or complexities.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <h3>Almost Zero Fees</h3>
-                <p>Enjoy extremely low, almost negligible transaction and gas fees for all your SHLOMO token transfers.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-globe-americas"></i>
-                </div>
-                <h3>Global Accessibility</h3>
-                <p>Create an account simply with a Gmail address. Identity verification (KYC) is optional, promoting rapid financial inclusion.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Transparency & Compliance</h3>
-                <p>Full respect for the ethical principles of the sector with token purchases at market price or higher.</p>
-            </div>
-        </div>
-    </section>
+    <!-- action row: download + github -->
+    <div class="action-row">
+      <div style="font-weight: 500; color: #17415f; display: flex; align-items: center; gap: 0.6rem;">
+        <i class="fas fa-download" style="color: #1e4b6b;"></i> 
+        <span>developed on the Android platform</span>
+      </div>
+      <div class="action-buttons">
+        <a href="https://github.com/lancelotech-app/shlomo/releases/download/1/SHLOMO_android_app_1_0_0_release1.apk" class="btn btn-primary" target="_blank">
+          <i class="fab fa-android"></i> Download for Android
+        </a>
+        <a href="https://github.com/lancelotech-app/shlomo/releases/tag/1" class="btn btn-outline github-btn" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
 
-    <!-- Token Details -->
-    <section class="token-details" id="token">
-        <h2 class="section-title">💎 SHLOMO Token</h2>
-        <p class="section-subtitle">Discover the specifics of our innovative bytestock</p>
-        
-        <div class="token-container">
-            <div class="token-image">
-                <div class="coin">SHLOMO</div>
-            </div>
-            
-            <div class="token-info">
-                <div class="price-card">
-                    <h3>Initial Offering & Valuation</h3>
-                    <div class="price-item">
-                        <span>Launch price:</span>
-                        <strong>1 SHLOMO = 1.6 USD</strong>
-                    </div>
-                    <div class="price-item">
-                        <span>Initial supply:</span>
-                        <strong>APP</strong>
-                    </div>
-                    <div class="price-item">
-                        <span>Type:</span>
-                        <strong>Bytestock Global Currency</strong>
-                    </div>
-                    <div class="price-item">
-                        <span>Blockchain:</span>
-                        <strong>Optimized proprietary</strong>
-                    </div>
-                </div>
-                
-                <div class="price-card">
-                    <h3>Vision & Mission</h3>
-                    <p><strong>Vision:</strong> Become the reference digital currency for everyday exchanges worldwide.</p>
-                    <p style="margin-top: 1rem;"><strong>Mission:</strong> Offer a reliable, fast, and accessible alternative to traditional currency, eliminating the complexity and exorbitant cost of cross-border transactions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- extra info: max contract & contact row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.8rem; margin: 1.2rem 0 0.8rem 0; align-items: center;">
+      <span style="background: #e3edf5; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #16415f;">
+        <i class="fas fa-user-tag" style="margin-right: 6px;"></i> purchase in progress · 21 max by_user
+      </span>
+      <span style="background: #e3edf5; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #16415f;">
+        <i class="fas fa-coins" style="margin-right: 6px;"></i> 1 SHLOMO = 1.61 USD
+      </span>
+    </div>
 
-    <!-- Download Section -->
-    <section class="download" id="download">
-        <div class="download-container">
-            <h2 class="section-title" style="color: white;">📥 Download & Get Started</h2>
-            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9;">The SHLOMO app APK for Android is available now. Join the frictionless exchange revolution.</p>
-            
-            <div class="download-options">
-                <a href="https://github.com/lancelotech-app/shlomo/releases/tag/1" class="download-btn" target="_blank">
-                    <i class="fab fa-github fa-2x"></i>
-                    <div>
-                        <div style="font-size: 0.9rem;">Download on</div>
-                        <div style="font-size: 1.2rem;">GitHub</div>
-                    </div>
-                </a>
-                
-                <a href="#" class="download-btn">
-                    <i class="fab fa-google-play fa-2x"></i>
-                    <div>
-                        <div style="font-size: 0.9rem;">Coming soon to</div>
-                        <div style="font-size: 1.2rem;">Google Play</div>
-                    </div>
-                </a>
-            </div>
-            
-            <div style="margin-top: 3rem; background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <h3 style="margin-bottom: 1rem;">To get started:</h3>
-                <ol style="text-align: left; margin-left: 1.5rem;">
-                    <li style="margin-bottom: 0.5rem;">Download and install the APK</li>
-                    <li style="margin-bottom: 0.5rem;">Register with your Gmail address</li>
-                    <li>Start sending and receiving SHLOMO in seconds</li>
-                </ol>
-            </div>
-        </div>
-    </section>
+    <hr class="divider-light" />
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>SHLOMO</h3>
-                <p>The innovative bytestock for frictionless global exchanges. Simplify your international transactions with cutting-edge technology.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#features">Features</a>
-                <a href="#token">SHLOMO Token</a>
-                <a href="#download">Download</a>
-                <a href="#">Documentation</a>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <a href="mailto:lancelotech@proton.me"><i class="fas fa-envelope"></i> lancelotech@proton.me</a>
-                <a href="#"><i class="fab fa-github"></i> GitHub Repository</a>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Disclaimer</h3>
-                <p>SHLOMO is an experimental cryptographic project. Users must comply with local regulations regarding bytestock use.</p>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2026 SHLOMO - Bytestock Global Currency. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;"><em>SHLOMO: Exchange, simplified to the extreme.</em></p>
-        </div>
-    </footer>
+    <!-- contact & github + mail -->
+    <div class="contact-row">
+      <a href="mailto:lancelotech@proton.me">
+        <i class="fas fa-envelope"></i> lancelotech@proton.me
+      </a>
+      <a href="https://github.com/lancelotech-app/shlomo" target="_blank">
+        <i class="fab fa-github"></i> github.com/lancelotech-app/shlomo
+      </a>
+      <a href="https://github.com/lancelotech-app/shlomo/" target="_blank" style="font-weight: 400;">
+        <i class="fas fa-external-link-alt" style="font-size: 0.9rem;"></i> bytestock.global
+      </a>
+    </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+    <!-- footer note -->
+    <div class="footnote">
+      <span><i class="fas fa-shield-alt" style="color: #1f5779;"></i> Bytestock Global Currency · SHLOMO</span>
+      <span><i class="far fa-clock"></i> max supply 31,415,926 ϑ · lock-ups 21,991,148 ϑ</span>
+      <span><i class="fas fa-mobile-android-alt"></i> Android app available</span>
+    </div>
+  </div>
 </body>
-
 </html>
