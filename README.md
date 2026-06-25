@@ -9,22 +9,21 @@ SHLOMO is an innovative Bytestock designed to make international money transfers
 
 | Metric | Value |
 |--------|-------|
-| **Initial Price** | 1 SHLOMO = 1.60 USD |
+| **Initial Price** | 1 SHLOMO = 1.61 USD |
 | **Max Supply** | 31,415,926 SHLOMO |
 | **Lock-ups** | 21,991,148 SHLOMO |
 | **Circulation Supply** | 6,283,185 SHLOMO |
-| **Max Contracts in progress** | 21 (by_user) |
+| **Max Contracts in Progress** | 21 (by_user) |
 
 ---
 
-## 📱 ANDROID Platform
----
+## 📱 DEVELOPED ON THE ANDROID PLATFORM
 
 ## 🔗 Links
 
-- **ANDROID APP**: [*https://github.com/lancelotech-app/shlomo/releases/tag/1*]
-- **Website**: [*https://lancelotech-app.github.io/shlomo/*]
-- **Contact**: [lancelotech@proton.me](mailto:lancelotech@proton.me)
+- **DOWNLOAD:** [https://github.com/lancelotech-app/shlomo/releases/download/1/SHLOMO_android_app_1_0_0_release1.apk](https://github.com/lancelotech-app/shlomo/releases/download/1/SHLOMO_android_app_1_0_0_release1.apk)
+- **Website:** [https://lancelotech-app.github.io/shlomo/ ](https://lancelotech-app.github.io/shlomo/)
+- **Contact:** [lancelotech@proton.me](mailto:lancelotech@proton.me)
 
 ---
 
