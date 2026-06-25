@@ -1,50 +1,58 @@
-# SHLOMO
-# **SHLOMO - Global Bytestock Currency**
+# SHLOMO · Bytestock Global Currency
 
-## **Revolutionize your exchanges with SHLOMO, the global digital currency stored in bytes.**
-
-SHLOMO is an innovative Bytestock designed to make international money transfers instant, secure, and practically **free**. Its goal? To democratize finance by removing the traditional barriers to monetary exchanges around the world.
-
-### **✨ Key Features**
-
-*   **📱 Simplified P2P Platform:** An intuitive Android app for direct exchanges between individuals, without intermediaries.
-*   **💰 Almost Zero Fees:** Enjoy **extremely low transaction and gas fees**, virtually insignificant for all your SHLOMO token transfers.
-*   **🌍 Global Accessibility:** Create an account simply with a **Gmail address**. Identity verification (KYC) is **optional**, promoting rapid financial inclusion.
-*   **🔒 Transparency & Compliance:** Token purchases are made at a price equal to or higher than market price, in full respect of the fundamental ethical principles of the sector.
-*   **💎 Initial Offering & Valuation:**
-    *   Launch price: **1 SHLOMO = 1.6 USD**
-    *   Initial supply: **APP**
-
-### **🚀 Vision & Mission**
-
-**Vision:** To become the reference digital currency for everyday exchanges worldwide.
-**Mission:** To offer a reliable, fast, and accessible alternative to traditional currency, eliminating the complexity and exorbitant cost of cross-border transactions.
-
-### **📥 Download & Getting Started**
-
-The SHLOMO app APK for Android is available now. Join the frictionless exchange revolution.
-
-[**Download SHLOMO on GitHub**] *(Link to insert to your repository)*
-
-**To get started:**
-1.  Download and install the APK.
-2.  Register with your Gmail address.
-3.  Start sending and receiving SHLOMO in seconds.
-
-### **🛠️ For Contributors**
-
-SHLOMO is an exciting, constantly evolving project. We invite interested developers to review the source code, audit the application, and contribute to its improvement. Check the repository for build instructions and contribution guidelines.
-
-### **⚠️ Disclaimer & Compliance**
-
-SHLOMO is an experimental cryptographic project. Users are encouraged to conduct their own research (DYOR) and comply with local regulations regarding bytestock use. The development team declines all responsibility for the use of the application.
+**Revolutionize your exchanges with SHLOMO**, the global digital currency stored in bytes.  
+SHLOMO is an innovative Bytestock designed to make international money transfers instant, secure, and practically free. Its goal? To democratize finance by removing the traditional barriers to monetary exchanges around the world.
 
 ---
 
-**📧 Contact & Support:** *lancelotech@proton.me*
+## 📊 Tokenomics
 
-**🌐 Download Android App:** *[https://github.com/lancelotech-app/shlomo/releases/tag/1]*
+| Metric | Value |
+|--------|-------|
+| **Initial Price** | 1 SHLOMO = 1.60 USD |
+| **Max Supply** | 31,415,926 SHLOMO |
+| **Lock-ups** | 21,991,148 SHLOMO |
+| **Circulation Supply** | 6,283,185 SHLOMO |
+| **Max Contracts in progress** | 21 (by_user) |
 
 ---
 
-*SHLOMO: Exchange, simplified to the extreme.*
+## 📱 ANDROID Platform
+---
+
+## 🔗 Links
+
+- **ANDROID APP**: [*https://github.com/lancelotech-app/shlomo/releases/tag/1*]
+- **Website**: [*https://lancelotech-app.github.io/shlomo/*]
+- **Contact**: [lancelotech@proton.me](mailto:lancelotech@proton.me)
+
+---
+
+## 🚀 About
+
+SHLOMO is built on the vision of a borderless financial system. By leveraging byte-based digital storage and a decentralized approach, SHLOMO enables:
+
+- ⚡ **Instant transfers** – send money globally in seconds.
+- 🔒 **Secure transactions** – cryptographic protection at every step.
+- 💸 **Near-zero fees** – remove traditional banking overhead.
+- 🌍 **Financial inclusion** – accessible to anyone, anywhere.
+
+---
+
+## 📦 Supply Breakdown
+
+- **Max Supply**: 31,415,926 SHLOMO
+- **Locked / Reserved**: 21,991,148 SHLOMO
+- **Circulating**: 6,283,185 SHLOMO
+
+The lock-up mechanism ensures long-term stability and aligns incentives for sustainable growth.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+*Bytestock Global Currency — SHLOMO.*
